@@ -13,7 +13,6 @@
 		0FF65D421E16D29E00433CE9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D411E16D29E00433CE9 /* main.cpp */; };
 		0FF65D4E1E16D35000433CE9 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D4C1E16D35000433CE9 /* graph.cpp */; };
 		0FF65D561E16D48C00433CE9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D551E16D48C00433CE9 /* main.cpp */; };
-		0FF65D5C1E16D4D600433CE9 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF65D5B1E16D4D600433CE9 /* gtest.framework */; };
 		0FF65D5D1E16D5D900433CE9 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D4C1E16D35000433CE9 /* graph.cpp */; };
 		0FF65D611E19C49B00433CE9 /* graph-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D601E19C49B00433CE9 /* graph-test.cpp */; };
 /* End PBXBuildFile section */
@@ -49,7 +48,6 @@
 		0FF65D4D1E16D35000433CE9 /* graph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = graph.hpp; path = core/graph.hpp; sourceTree = "<group>"; };
 		0FF65D531E16D48C00433CE9 /* dasel-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dasel-test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF65D551E16D48C00433CE9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		0FF65D5B1E16D4D600433CE9 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		0FF65D601E19C49B00433CE9 /* graph-test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "graph-test.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FF65D5C1E16D4D600433CE9 /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +76,6 @@
 				0FF65D401E16D29E00433CE9 /* dasel */,
 				0FF65D541E16D48C00433CE9 /* dasel-test */,
 				0FF65D3F1E16D29E00433CE9 /* Products */,
-				0FF65D5A1E16D4D500433CE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,14 +115,6 @@
 				0FAFCE641E206B3300716CCE /* trie-test.cpp */,
 			);
 			path = "dasel-test";
-			sourceTree = "<group>";
-		};
-		0FF65D5A1E16D4D500433CE9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0FF65D5B1E16D4D600433CE9 /* gtest.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +307,10 @@
 		0FF65D461E16D29E00433CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../../../../Library/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -326,6 +318,10 @@
 		0FF65D471E16D29E00433CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../../../../Library/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -333,18 +329,21 @@
 		0FF65D581E16D48C00433CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				HEADER_SEARCH_PATHS = "/usr/local/include/**";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lgtest",
+					"-lgtest_main",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -352,18 +351,21 @@
 		0FF65D591E16D48C00433CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				HEADER_SEARCH_PATHS = "/usr/local/include/**";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lgtest",
+					"-lgtest_main",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

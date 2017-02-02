@@ -22,7 +22,7 @@
  */
 
 
-#include <exception>
+#include <stdexcept>
 #include <stdint.h>
 #include "trie.hpp"
 

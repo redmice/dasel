@@ -34,11 +34,8 @@ int main(int argc, const char * argv[]) {
         {
             istringstream iss(line);
             iss >> fromID >> toID;
-            cout << "addVertex()\n";
             myGraph.addVertex(fromID);
-            cout << "addVertex()\n";
             myGraph.addVertex(toID);
-            cout << "addEdge()\n";
             myGraph.addEdge(fromID, toID);
             if (progressSpan == 1000){
                 cout << "." << flush;
@@ -46,7 +43,6 @@ int main(int argc, const char * argv[]) {
             }
             ++progressSpan;
         }
-        
     }
     chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>( t2 - t1 ).count();
@@ -57,13 +53,10 @@ int main(int argc, const char * argv[]) {
     
     cout << endl << "Graph built in " << duration << " microseconds" << endl;
     cout << "Or " << min << "min " << seg << "seg " << mil << "mil " << micro << "mic" <<  endl;
-    cout << "getNumVertex()\n";
     cout << "\tVertex: " << myGraph.getNumVertex() << endl;
-    cout << "getNumEdges()\n";
     cout << "\tEdges: " << myGraph.getNumEdges() << endl;
-    cout << "printGraph()\n";
-    myGraph.printGraph(1, 2);
-    cout << "removeVertex()\n";
+    myGraph.printGraph(1, 10);
+    cout << "Distance: " << myGraph.distance(1, 10) << "\n";
     myGraph.removeVertex(1);
     return 0;
 }
