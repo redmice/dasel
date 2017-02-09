@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
   0: "abcdegioprstuv",
-  1: "tuv",
+  1: "dtuv",
   2: "abcdegioprstuv",
   3: "d"
 };

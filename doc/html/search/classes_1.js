@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['undirectedgraph',['UndirectedGraph',['../class_undirected_graph.html',1,'']]]
+  ['trie',['Trie',['../class_trie.html',1,'']]],
+  ['trienode',['TrieNode',['../class_trie_1_1_trie_node.html',1,'Trie']]]
 ];

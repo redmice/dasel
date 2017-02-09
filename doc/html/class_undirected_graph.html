@@ -104,6 +104,10 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_undirected_graph.html#af1d0cd6aad2c95775bbfeb8e58dbb828">isVertex</a> (const uint64_t &amp;id) const</td></tr>
 <tr class="memdesc:af1d0cd6aad2c95775bbfeb8e58dbb828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if there is a vertex with the given ID. <br /></td></tr>
 <tr class="separator:af1d0cd6aad2c95775bbfeb8e58dbb828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e62d62fc9d92bddc4f47442e706802a"><td class="memItemLeft" align="right" valign="top"><a id="a9e62d62fc9d92bddc4f47442e706802a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_undirected_graph.html#a9e62d62fc9d92bddc4f47442e706802a">isEdge</a> (const uint64_t &amp;fromID, const uint64_t &amp;toID)</td></tr>
+<tr class="memdesc:a9e62d62fc9d92bddc4f47442e706802a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if there is an edge between the 2 vertex passed as parameters. <br /></td></tr>
+<tr class="separator:a9e62d62fc9d92bddc4f47442e706802a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d346d735b3e5efe38e409e4d96d046"><td class="memItemLeft" align="right" valign="top"><a id="a14d346d735b3e5efe38e409e4d96d046"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_undirected_graph.html#a14d346d735b3e5efe38e409e4d96d046">getNumVertex</a> () const</td></tr>
 <tr class="memdesc:a14d346d735b3e5efe38e409e4d96d046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of vertex in the graph. <br /></td></tr>
@@ -149,10 +153,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a95fed4940c0e577c9893b318313d87b8"><td class="memItemLeft" align="right" valign="top"><a id="a95fed4940c0e577c9893b318313d87b8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printDFS</b> (<a class="el" href="class_undirected_graph_1_1_vertex.html">Vertex</a> &amp;v, const uint8_t &amp;depth, const uint8_t &amp;level)</td></tr>
 <tr class="separator:a95fed4940c0e577c9893b318313d87b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac210647d700ea7296150f97a5798b1ec"><td class="memItemLeft" align="right" valign="top"><a id="ac210647d700ea7296150f97a5798b1ec"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_undirected_graph.html#ac210647d700ea7296150f97a5798b1ec">distance</a> (const uint64_t &amp;from, const uint64_t to)</td></tr>
-<tr class="memdesc:ac210647d700ea7296150f97a5798b1ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance between 2 vertex, using a Breath-first traversal. <br /></td></tr>
-<tr class="separator:ac210647d700ea7296150f97a5798b1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7816f8bde4372af8449576d01da9cbc0"><td class="memItemLeft" align="right" valign="top"><a id="a7816f8bde4372af8449576d01da9cbc0"></a>
+int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_undirected_graph.html#a7816f8bde4372af8449576d01da9cbc0">distance</a> (const uint64_t &amp;from, const uint64_t &amp;to)</td></tr>
+<tr class="memdesc:a7816f8bde4372af8449576d01da9cbc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance between 2 vertex, using a Breath-first traversal. <br /></td></tr>
+<tr class="separator:a7816f8bde4372af8449576d01da9cbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements an undirected graph. It contains a vertex class and an iterator. </p>

@@ -52,11 +52,12 @@ public:
     /// IDs to any additional content.
     //ToDo: Convert into a templete to hold content data of any type
     class Vertex{
-        uint64_t id;     ///Vertex ID
-        vector<uint64_t> adjList;   ///Adjacency list
-        bool visited;   ///Visited flag. Used by graph search algorithms
+        uint64_t id;     // Vertex ID
+        vector<uint64_t> adjList;   // Adjacency list
+        bool visited;   // Visited flag. Used by graph search algorithms
 
     public:
+        /// Default constructor
         Vertex () : id (0), visited(false) { }
         ///Create a vertex with id = vID
         Vertex (const uint64_t& vID) : id (vID), visited(false) { }
@@ -88,10 +89,13 @@ public:
     /// Vertex iterator. Only suports forward iteration (++ operator)
     class VertexIterator {
         typedef unordered_map<uint64_t, Vertex>::iterator TMapIter;
-        TMapIter vIter;  ///Vertex iterator
+        TMapIter vIter;  // Vertex iterator
     public:
+        ///Default constructor
         VertexIterator() : vIter() { };
+        ///Construct a new iterator object from a
         VertexIterator(const TMapIter& iter) : vIter(iter) { };
+        ///Copy constructor
         VertexIterator(const VertexIterator& vIt) : vIter(vIt.vIter) { };
         /// Asignment operator
         VertexIterator& operator = (const VertexIterator& vIt) { vIter = vIt.vIter; return *this; }
@@ -128,6 +132,8 @@ public:
     // Access & Modifiers
     ///Return true if there is a vertex with the given ID
     bool isVertex (const uint64_t& id) const {return vertexList.count(id);}
+    ///Returns true if there is an edge between the 2 vertex passed as parameters
+    bool isEdge (const uint64_t& fromID, const uint64_t& toID);
     ///Returns the number of vertex in the graph
     size_t getNumVertex () const { return vertexList.size();}
     ///Returns the number of edges in the graph
@@ -177,7 +183,7 @@ public:
 
 
 //#//////////////////////////////////////////////
-/// \brief Implements an directed graph. It contains a vertex class and a vertex iterator
+/// \brief Implements a directed graph. It contains a vertex class and a vertex iterator
 ///
 /// Each vertex in the directed graph contains the adjacency
 /// list, and additionaly a list with income connections.
@@ -192,17 +198,18 @@ public:
 class DirectedGraph {
 public:
     //#//////////////////////////////////////////////
-    /// \brief Vertex class for an directed graph.
+    /// \brief Vertex class for a directed graph.
     ///
-    /// Contains the adjacency list, and vertex ID. It is up to the user to
+    /// Contains the adjacency list, both for in and out connections, and
+    /// vertex ID. It is up to the user to
     /// maintain a data structure mapping the
     /// IDs to any additional content.
     //ToDo: Convert into a templete to hold content data of any type
     class Vertex{
-        uint64_t id;     ///Vertex ID
-        vector<uint64_t> adjList;   ///Adjacency list
-        vector<uint64_t> inAdjList; ///In connection list
-        bool visited;   ///Visited flag. Used by graph search algorithms
+        uint64_t id;     /// Vertex ID
+        vector<uint64_t> adjList;   // Adjacency list
+        vector<uint64_t> inAdjList; // In connection list
+        bool visited;   // Visited flag. Used by graph search algorithms
         
     public:
         Vertex () : id (0), visited(false) { }
@@ -244,8 +251,10 @@ public:
         typedef unordered_map<uint64_t, Vertex>::iterator TMapIter;
         TMapIter vIter;  ///Vertex iterator
     public:
+        ///Default constructor
         VertexIterator() : vIter() { };
         VertexIterator(const TMapIter& iter) : vIter(iter) { };
+        ///Copy constructor
         VertexIterator(const VertexIterator& vIt) : vIter(vIt.vIter) { };
         /// Asignment operator
         VertexIterator& operator = (const VertexIterator& vIt) { vIter = vIt.vIter; return *this; }
@@ -268,6 +277,7 @@ private:
 public:
     //#//////////////////////////////////////////////
     // Constructors
+    /// Default constructor
     DirectedGraph (): vertexList(), numEdges(0), maxID(0) { }
     ///Copy constructor
     DirectedGraph (const DirectedGraph& dGraph): vertexList (dGraph.vertexList), numEdges (dGraph.numEdges), maxID(dGraph.maxID) { }

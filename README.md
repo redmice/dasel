@@ -18,8 +18,9 @@ You are more than welcome to share your comments or suggestions, and contribute 
 
 The current version supports the following data structures:
 
-  * Undirected Graph
-  * Trie tree
+  * Undirected Graph: UndirectedGraph class
+  * Directed Graph: DirectedGraph class
+  * Trie tree: Trie class
 
 ## Platforms ##
 

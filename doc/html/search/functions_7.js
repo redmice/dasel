@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['operator_21_3d',['operator!=',['../class_undirected_graph_1_1_vertex_iterator.html#a2105f4a1b2394664449052a59f5d75f0',1,'UndirectedGraph::VertexIterator']]],
-  ['operator_2b_2b',['operator++',['../class_undirected_graph_1_1_vertex_iterator.html#a915362b99ee24ffc6796951e88fa9b66',1,'UndirectedGraph::VertexIterator']]],
-  ['operator_3d',['operator=',['../class_undirected_graph_1_1_vertex_iterator.html#a6ccfe018c10b2642a1d0db63adf18e6d',1,'UndirectedGraph::VertexIterator::operator=()'],['../class_undirected_graph.html#a15371f79942ffc34425d836bd1200159',1,'UndirectedGraph::operator=()']]],
-  ['operator_3d_3d',['operator==',['../class_undirected_graph_1_1_vertex_iterator.html#a01e349835af7a8318129cff87ca175b1',1,'UndirectedGraph::VertexIterator']]]
+  ['operator_21_3d',['operator!=',['../class_undirected_graph_1_1_vertex_iterator.html#a2105f4a1b2394664449052a59f5d75f0',1,'UndirectedGraph::VertexIterator::operator!=()'],['../class_directed_graph_1_1_vertex_iterator.html#af3584c7bb266c76ef70a65939547c52f',1,'DirectedGraph::VertexIterator::operator!=()']]],
+  ['operator_2b_2b',['operator++',['../class_undirected_graph_1_1_vertex_iterator.html#a915362b99ee24ffc6796951e88fa9b66',1,'UndirectedGraph::VertexIterator::operator++()'],['../class_directed_graph_1_1_vertex_iterator.html#a8d0be7f0d65a49acb744153af3b56b22',1,'DirectedGraph::VertexIterator::operator++()']]],
+  ['operator_3d',['operator=',['../class_undirected_graph_1_1_vertex_iterator.html#a6ccfe018c10b2642a1d0db63adf18e6d',1,'UndirectedGraph::VertexIterator::operator=()'],['../class_undirected_graph.html#a15371f79942ffc34425d836bd1200159',1,'UndirectedGraph::operator=()'],['../class_directed_graph_1_1_vertex_iterator.html#a796866b91ad0a7d0e001b2807cb976d4',1,'DirectedGraph::VertexIterator::operator=()'],['../class_directed_graph.html#a9c04e5c38799c26623f8ee329c8b7908',1,'DirectedGraph::operator=()']]],
+  ['operator_3d_3d',['operator==',['../class_undirected_graph_1_1_vertex_iterator.html#a01e349835af7a8318129cff87ca175b1',1,'UndirectedGraph::VertexIterator::operator==()'],['../class_directed_graph_1_1_vertex_iterator.html#a2996ba1d03a02744565fa53b88fc8533',1,'DirectedGraph::VertexIterator::operator==()']]]
 ];

@@ -45,6 +45,13 @@ void UndirectedGraph::Vertex::removeAdjacent(const uint64_t& vID) {
 //#/////////////////////////////////////////////////
 // UndirectedGraph
 //
+bool UndirectedGraph::isEdge(const uint64_t& fromID, const uint64_t& toID){
+    if (!(isVertex(fromID) && isVertex(toID))){
+        return false;
+    }
+    return vertexList[fromID].isAdjacent(toID);
+}
+
 UndirectedGraph::Vertex& UndirectedGraph::addVertex(const uint64_t& vID) {
     
     if (!vertexList.count(vID)){
@@ -210,8 +217,16 @@ void DirectedGraph::removeVertex(const uint64_t& vID) {
             if (i!=vID){
                 VertexIterator adjI = getVertexI(i);
                 adjI->second.removeOutEdge(vID);
+                --numEdges;     //For self only decremented once for out
             }
-            --numEdges;
+        }
+        //Remove out-edges to the vertex
+        for (auto i : it->second.adjList){
+            if (i!=vID){
+                VertexIterator adjI = getVertexI(i);
+                adjI->second.removeInEdge(vID);
+            }
+            --numEdges;     //For self only decremented once for out
         }
         vertexList.erase(it);
     }
