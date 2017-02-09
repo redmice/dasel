@@ -49,3 +49,7 @@ In addition, you can find a Doxyfile to generate the html code documentation.
 I welcome corrections and additions of new data structures to the project. If you wish to contribute, just submit a push request to github.
 
 Your code should contain doxigen-like comments, and as a bonus you may also want to generate some unit test cases for your added classes.
+
+## Documentation ##
+
+Class reference can be found at the [Dasel site](https://redmice.github.io/dasel/)
