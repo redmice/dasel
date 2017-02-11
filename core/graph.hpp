@@ -292,6 +292,8 @@ public:
     // Access & Modifiers
     ///Return true if there is a vertex with the given ID
     bool isVertex (const uint64_t& id) const {return vertexList.count(id);}
+    ///Returns true if there is an edge between the 2 vertex passed as parameters
+    bool isEdge (const uint64_t& fromID, const uint64_t& toID);
     ///Returns the number of vertex in the graph
     size_t getNumVertex () const { return vertexList.size();}
     ///Returns the number of edges in the graph

@@ -131,19 +131,27 @@ TEST_F(UndirectedGraphTest, RemoveEdgeWorks) {
     EXPECT_EQ(11, g2.getNumEdges());
 }
 
-// Test vertex, edge creation
+TEST_F(UndirectedGraphTest, RightNumEdges) {
+    uint64_t count;
+    for (UndirectedGraph::VertexIterator vertexI = g2.begin(); vertexI != g2.end(); vertexI++) {
+        count += vertexI->second.getOutDeg();
+        //cout << vertexI->second.getId() << "\t" << vertexI->second.getDeg() << "\n";
+    }
+    EXPECT_EQ(count, g2.getNumEdges()*2); //count*2 since it is undirected. Each edge is counted twice
+}
+
+// Multiple vertex / edges manipulations
 TEST(UndirectedGraphTest_2, ManipulateVertexEdges) {
-    int numVertex = 10000;
-    int numEdges = 100000;
+    uint64_t numVertex = 1000000;
+    uint64_t numEdges = 10000000;
 
     UndirectedGraph Graph;
     UndirectedGraph Graph1;
     UndirectedGraph Graph2;
-    int n;
-    int NCount;
-    int LCount;
-    uint64_t x,y;
-    int Deg, InDeg, OutDeg;
+    uint64_t NCount;
+    uint64_t LCount;
+    uint64_t from,to;
+    uint64_t Deg, InDeg, OutDeg;
     
     //Empty
     EXPECT_EQ(0,Graph.getNumVertex());
@@ -160,14 +168,14 @@ TEST(UndirectedGraphTest_2, ManipulateVertexEdges) {
     
     // create random edges
     NCount = numEdges;
-    LCount = 0;
+    LCount = 0; //Number of loops
     while (NCount > 0) {
-        x = (uint64_t) (drand48() * numVertex);
-        y = (uint64_t) (drand48() * numVertex);
-        if (!Graph.isEdge(x,y)) {
-            Graph.addEdge(x, y);
-            NCount--;
-            if (x == y) {
+        from = (uint64_t) (drand48() * numVertex);
+        to = (uint64_t) (drand48() * numVertex);
+        if (!Graph.isEdge(from,to)) {
+            Graph.addEdge(from, to);
+            --NCount;
+            if (from == to) {
                 LCount++;
             }
         }
@@ -190,14 +198,12 @@ TEST(UndirectedGraphTest_2, ManipulateVertexEdges) {
     }
     EXPECT_EQ(numVertex,NCount);
     
-    // edges per node iterator, each non-loop is visited twice, each loop once
+    // edges per node iterator
     NCount = 0;
     for (UndirectedGraph::VertexIterator vertexI = Graph.begin(); vertexI != Graph.end(); vertexI++) {
-        for (int e = 0; e < vertexI->second.getOutDeg(); e++) {
-            NCount++;
-        }
+        NCount += vertexI->second.getOutDeg();
     }
-    EXPECT_EQ(numVertex*2-LCount,NCount);
+    EXPECT_EQ(numEdges*2-LCount, NCount); //numEdges*2 since it is undirected. -Lcount since loops are counted once.
 
     
     // vertex degree
@@ -219,7 +225,7 @@ TEST(UndirectedGraphTest_2, ManipulateVertexEdges) {
     // remove all the nodes and edges
     for (int i = 0; i < numVertex; ++i) {
         Graph.removeVertex(i);
-        Graph.removeVertex(i);
+        Graph1.removeVertex(i);
     }
     
     EXPECT_EQ(0,Graph.getNumVertex());
@@ -341,3 +347,108 @@ TEST_F(DirectedGraphTest, RemoveEdgeWorks) {
     g2.removeEdge(3,34);
     EXPECT_EQ(13, g2.getNumEdges());
 }
+
+TEST_F(DirectedGraphTest, RightNumEdges) {
+    uint64_t count = 0;
+    for (DirectedGraph::VertexIterator vertexI = g2.begin(); vertexI != g2.end(); vertexI++) {
+        count += vertexI->second.getOutDeg();
+    }
+    EXPECT_EQ(count, g2.getNumEdges());
+}
+
+// Test vertex, edge creation
+TEST(DirectedGraphTest_2, ManipulateVertexEdges) {
+    uint64_t numVertex = 1000000;
+    uint64_t numEdges = 10000000;
+    
+    DirectedGraph Graph;
+    DirectedGraph Graph1;
+    DirectedGraph Graph2;
+    uint64_t NCount;
+    uint64_t LCount;
+    uint64_t from,to;
+    uint64_t Deg, InDeg, OutDeg;
+    
+    //Empty
+    EXPECT_EQ(0,Graph.getNumVertex());
+    EXPECT_EQ(0,Graph.getNumEdges());
+    EXPECT_EQ(0,Graph.getMaxID());
+    
+    // create the nodes
+    for (int i = 0; i < numVertex; ++i) {
+        Graph.addVertex(i);
+    }
+    EXPECT_EQ(numVertex,Graph.getNumVertex());
+    EXPECT_EQ(0,Graph.getNumEdges());
+    EXPECT_EQ(numVertex-1,Graph.getMaxID());
+    
+    // create random edges
+    NCount = numEdges;
+    LCount = 0; //Number of loops
+    while (NCount > 0) {
+        from = (uint64_t) (drand48() * numVertex);
+        to = (uint64_t) (drand48() * numVertex);
+        if (!Graph.isEdge(from,to)) {
+            Graph.addEdge(from, to);
+            --NCount;
+            if (from == to) {
+                LCount++;
+            }
+        }
+    }
+    
+    EXPECT_EQ(numEdges,Graph.getNumEdges());
+    
+    for (int i = 0; i < numVertex; ++i) {
+        EXPECT_EQ(true,Graph.isVertex(i));
+    }
+    
+    EXPECT_EQ(false,Graph.isVertex(numVertex));
+    EXPECT_EQ(false,Graph.isVertex(numVertex+1));
+    EXPECT_EQ(false,Graph.isVertex(2*numVertex));
+    
+    // nodes iterator
+    NCount = 0;
+    for (DirectedGraph::VertexIterator vertexI = Graph.begin(); vertexI != Graph.end(); vertexI++) {
+        NCount++;
+    }
+    EXPECT_EQ(numVertex,NCount);
+    
+    // edges per node iterator
+    NCount = 0;
+    for (DirectedGraph::VertexIterator vertexI = Graph.begin(); vertexI != Graph.end(); vertexI++) {
+        NCount += vertexI->second.getOutDeg();
+    }
+    EXPECT_EQ(numEdges, NCount);
+    
+    
+    // vertex degree
+    for (DirectedGraph::VertexIterator vertexI = Graph.begin(); vertexI != Graph.end(); vertexI++) {
+        Deg = vertexI->second.getDeg();
+        InDeg = vertexI->second.getInDeg();
+        OutDeg = vertexI->second.getOutDeg();
+        
+        EXPECT_EQ(Deg,InDeg + OutDeg);
+    }
+    
+    // assignment
+    Graph1 = Graph;
+    EXPECT_EQ(numVertex,Graph1.getNumVertex());
+    EXPECT_EQ(numEdges,Graph1.getNumEdges());
+    
+    
+    // remove all the nodes and edges
+    for (int i = 0; i < numVertex; ++i) {
+        Graph.removeVertex(i);
+        Graph1.removeVertex(i);
+    }
+    
+    EXPECT_EQ(0,Graph.getNumVertex());
+    EXPECT_EQ(0,Graph.getNumEdges());
+    EXPECT_EQ(0,Graph1.getNumVertex());
+    EXPECT_EQ(0,Graph1.getNumEdges());
+    
+}
+
+
+

@@ -197,6 +197,12 @@ void DirectedGraph::Vertex::removeInEdge (const uint64_t& vID) {
 //#/////////////////////////////////////////////////
 // DirectedGraph
 //
+bool DirectedGraph::isEdge(const uint64_t& fromID, const uint64_t& toID){
+    if (!(isVertex(fromID) && isVertex(toID))){
+        return false;
+    }
+    return vertexList[fromID].isOutEdge(toID);
+}
 DirectedGraph::Vertex& DirectedGraph::addVertex(const uint64_t& vID) {
     
     if (!vertexList.count(vID)){
