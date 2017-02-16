@@ -10,13 +10,13 @@
 		0FAFCE621E2015C800716CCE /* trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFCE601E2015C800716CCE /* trie.cpp */; };
 		0FAFCE631E2015C800716CCE /* trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFCE601E2015C800716CCE /* trie.cpp */; };
 		0FAFCE651E206B3300716CCE /* trie-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFCE641E206B3300716CCE /* trie-test.cpp */; };
-		0FBAC5A21E4B5A3D00F15247 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FBAC5A11E4B5A3D00F15247 /* main.cpp */; };
 		0FCCC3031E4892BD0084FC1B /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D4C1E16D35000433CE9 /* graph.cpp */; };
 		0FCCC3051E4892BD0084FC1B /* trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFCE601E2015C800716CCE /* trie.cpp */; };
 		0FF65D4E1E16D35000433CE9 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D4C1E16D35000433CE9 /* graph.cpp */; };
 		0FF65D561E16D48C00433CE9 /* run-all-tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D551E16D48C00433CE9 /* run-all-tests.cpp */; };
 		0FF65D5D1E16D5D900433CE9 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D4C1E16D35000433CE9 /* graph.cpp */; };
 		0FF65D611E19C49B00433CE9 /* graph-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF65D601E19C49B00433CE9 /* graph-test.cpp */; };
+		9D66480F1E56385C00D14B50 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D66480E1E56385C00D14B50 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,16 +44,16 @@
 		0FAFCE601E2015C800716CCE /* trie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trie.cpp; path = core/trie.cpp; sourceTree = "<group>"; };
 		0FAFCE611E2015C800716CCE /* trie.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = trie.hpp; path = core/trie.hpp; sourceTree = "<group>"; };
 		0FAFCE641E206B3300716CCE /* trie-test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "trie-test.cpp"; sourceTree = "<group>"; };
-		0FBAC5A11E4B5A3D00F15247 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = examples/main.cpp; sourceTree = SOURCE_ROOT; };
 		0FCFCC4A1E488A4D00AB4BC9 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		0FCFCC4B1E488A4D00AB4BC9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		0FCFCC521E488DAE00AB4BC9 /* liblibdasel.a.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibdasel.a.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FF65D3E1E16D29E00433CE9 /* dasel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dasel; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FCFCC521E488DAE00AB4BC9 /* libdasel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdasel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF65D3E1E16D29E00433CE9 /* dasel-sample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dasel-sample"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF65D4C1E16D35000433CE9 /* graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = graph.cpp; path = core/graph.cpp; sourceTree = "<group>"; };
 		0FF65D4D1E16D35000433CE9 /* graph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = graph.hpp; path = core/graph.hpp; sourceTree = "<group>"; };
 		0FF65D531E16D48C00433CE9 /* dasel-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dasel-test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF65D551E16D48C00433CE9 /* run-all-tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "run-all-tests.cpp"; sourceTree = "<group>"; };
 		0FF65D601E19C49B00433CE9 /* graph-test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "graph-test.cpp"; sourceTree = "<group>"; };
+		9D66480E1E56385C00D14B50 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +90,21 @@
 			name = readme;
 			sourceTree = "<group>";
 		};
+		0FE7502F1E55E76100A58EE1 /* dasel-sample */ = {
+			isa = PBXGroup;
+			children = (
+				9D66480E1E56385C00D14B50 /* main.cpp */,
+			);
+			path = "dasel-sample";
+			sourceTree = "<group>";
+		};
 		0FF65D351E16D29E00433CE9 = {
 			isa = PBXGroup;
 			children = (
 				0FF65D481E16D2AB00433CE9 /* core */,
-				0FF65D401E16D29E00433CE9 /* examples */,
 				0FF65D541E16D48C00433CE9 /* test */,
 				0FCFCC4D1E488A7A00AB4BC9 /* readme */,
+				0FE7502F1E55E76100A58EE1 /* dasel-sample */,
 				0FF65D3F1E16D29E00433CE9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,20 +112,11 @@
 		0FF65D3F1E16D29E00433CE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0FF65D3E1E16D29E00433CE9 /* dasel */,
+				0FF65D3E1E16D29E00433CE9 /* dasel-sample */,
 				0FF65D531E16D48C00433CE9 /* dasel-test */,
-				0FCFCC521E488DAE00AB4BC9 /* liblibdasel.a.a */,
+				0FCFCC521E488DAE00AB4BC9 /* libdasel.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0FF65D401E16D29E00433CE9 /* examples */ = {
-			isa = PBXGroup;
-			children = (
-				0FBAC5A11E4B5A3D00F15247 /* main.cpp */,
-			);
-			name = examples;
-			path = dasel;
 			sourceTree = "<group>";
 		};
 		0FF65D481E16D2AB00433CE9 /* core */ = {
@@ -155,9 +154,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0FCFCC511E488DAE00AB4BC9 /* libdasel.a */ = {
+		0FCFCC511E488DAE00AB4BC9 /* dasel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FCFCC5A1E488DAE00AB4BC9 /* Build configuration list for PBXNativeTarget "libdasel.a" */;
+			buildConfigurationList = 0FCFCC5A1E488DAE00AB4BC9 /* Build configuration list for PBXNativeTarget "dasel" */;
 			buildPhases = (
 				0FCFCC4E1E488DAE00AB4BC9 /* Sources */,
 				0FCFCC4F1E488DAE00AB4BC9 /* Frameworks */,
@@ -167,14 +166,14 @@
 			);
 			dependencies = (
 			);
-			name = libdasel.a;
+			name = dasel;
 			productName = libdasel.a;
-			productReference = 0FCFCC521E488DAE00AB4BC9 /* liblibdasel.a.a */;
+			productReference = 0FCFCC521E488DAE00AB4BC9 /* libdasel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		0FF65D3D1E16D29E00433CE9 /* dasel */ = {
+		0FF65D3D1E16D29E00433CE9 /* dasel-sample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FF65D451E16D29E00433CE9 /* Build configuration list for PBXNativeTarget "dasel" */;
+			buildConfigurationList = 0FF65D451E16D29E00433CE9 /* Build configuration list for PBXNativeTarget "dasel-sample" */;
 			buildPhases = (
 				0FF65D3A1E16D29E00433CE9 /* Sources */,
 				0FF65D3B1E16D29E00433CE9 /* Frameworks */,
@@ -184,9 +183,9 @@
 			);
 			dependencies = (
 			);
-			name = dasel;
+			name = "dasel-sample";
 			productName = dasel;
-			productReference = 0FF65D3E1E16D29E00433CE9 /* dasel */;
+			productReference = 0FF65D3E1E16D29E00433CE9 /* dasel-sample */;
 			productType = "com.apple.product-type.tool";
 		};
 		0FF65D521E16D48C00433CE9 /* dasel-test */ = {
@@ -241,9 +240,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0FF65D3D1E16D29E00433CE9 /* dasel */,
+				0FF65D3D1E16D29E00433CE9 /* dasel-sample */,
 				0FF65D521E16D48C00433CE9 /* dasel-test */,
-				0FCFCC511E488DAE00AB4BC9 /* libdasel.a */,
+				0FCFCC511E488DAE00AB4BC9 /* dasel */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +263,7 @@
 			files = (
 				0FF65D4E1E16D35000433CE9 /* graph.cpp in Sources */,
 				0FAFCE621E2015C800716CCE /* trie.cpp in Sources */,
-				0FBAC5A21E4B5A3D00F15247 /* main.cpp in Sources */,
+				9D66480F1E56385C00D14B50 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +462,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0FCFCC5A1E488DAE00AB4BC9 /* Build configuration list for PBXNativeTarget "libdasel.a" */ = {
+		0FCFCC5A1E488DAE00AB4BC9 /* Build configuration list for PBXNativeTarget "dasel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FCFCC5B1E488DAE00AB4BC9 /* Debug */,
@@ -481,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0FF65D451E16D29E00433CE9 /* Build configuration list for PBXNativeTarget "dasel" */ = {
+		0FF65D451E16D29E00433CE9 /* Build configuration list for PBXNativeTarget "dasel-sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FF65D461E16D29E00433CE9 /* Debug */,

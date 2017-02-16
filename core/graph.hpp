@@ -234,7 +234,9 @@ public:
         ///Returns true if the vertex with the given ID is adjacent
         bool isOutEdge (const uint64_t& vID) const { return binary_search(adjList.begin(), adjList.end(), vID); }
         ///Returns the adjacent vertex ID in the given position of the adjacency list
-        uint64_t getAdjID (const uint64_t& pos) const { return adjList[pos]; }
+        uint64_t getOutAdjID (const uint64_t& pos) const { return adjList[pos]; }
+        ///Returns the adjacent vertex ID in the given position of the adjacency list
+        uint64_t getInAdjID (const uint64_t& pos) const { return inAdjList[pos]; }
         ///Adds an edge to the given vertex ID by adding a new element to the adjacency list
         void addOutEdge (const uint64_t& vID);
         ///Removes edge to the given vertex ID from the adjacency list
