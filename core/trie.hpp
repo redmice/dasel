@@ -61,7 +61,7 @@ public:
         ///  \param letter the caracter represented by the node
         ///  \param p pointer to the parent node
         //
-        TrieNode (char letter, TrieNode *p): content(sanitizeContent(letter)), parent(p), numChildren(0), wordMarker(false) {}
+        TrieNode (char letter, TrieNode *p): parent(p), content(sanitizeContent(letter)), numChildren(0), wordMarker(false) {}
         /// Returns the number of direct descendants of the node
         uint8_t getNumChildren () { return numChildren; }
         /// Returns a pointer to the children representing a given letter

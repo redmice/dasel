@@ -142,8 +142,8 @@ TEST_F(UndirectedGraphTest, RightNumEdges) {
 
 // Multiple vertex / edges manipulations
 TEST(UndirectedGraphTest_2, ManipulateVertexEdges) {
-    uint64_t numVertex = 1000000;
-    uint64_t numEdges = 10000000;
+    uint64_t numVertex = 1000;
+    uint64_t numEdges = 10000;
 
     UndirectedGraph Graph;
     UndirectedGraph Graph1;
@@ -358,8 +358,8 @@ TEST_F(DirectedGraphTest, RightNumEdges) {
 
 // Test vertex, edge creation
 TEST(DirectedGraphTest_2, ManipulateVertexEdges) {
-    uint64_t numVertex = 1000000;
-    uint64_t numEdges = 10000000;
+    uint64_t numVertex = 10000;
+    uint64_t numEdges = 100000;
     
     DirectedGraph Graph;
     DirectedGraph Graph1;
@@ -438,8 +438,10 @@ TEST(DirectedGraphTest_2, ManipulateVertexEdges) {
     
     
     // remove all the nodes and edges
+    for (DirectedGraph::VertexIterator vertexI = Graph.begin(); vertexI != Graph.end(); vertexI++) {
+         Graph.removeVertex(vertexI->second.getId());
+    }
     for (int i = 0; i < numVertex; ++i) {
-        Graph.removeVertex(i);
         Graph1.removeVertex(i);
     }
     

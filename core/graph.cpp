@@ -70,8 +70,8 @@ void UndirectedGraph::removeVertex(const uint64_t& vID) {
         //Remove in-edges to the vertex
         for (auto i : it->second.adjList){
             if (i!=vID){
-                VertexIterator adjI = getVertexI(i);
-                adjI->second.removeAdjacent(vID);
+                Vertex& adj = getVertex(i);
+                adj.removeAdjacent(vID);
             }
             --numEdges;
         }
@@ -218,19 +218,19 @@ DirectedGraph::Vertex& DirectedGraph::addVertex(const uint64_t& vID) {
 void DirectedGraph::removeVertex(const uint64_t& vID) {
     unordered_map<uint64_t, Vertex>::iterator it = vertexList.find(vID);
     if (it != vertexList.end()) {
-        //Remove in-edges to the vertex
+        //Remove all in-edges to the vertex
         for (auto i : it->second.inAdjList){
             if (i!=vID){
-                VertexIterator adjI = getVertexI(i);
-                adjI->second.removeOutEdge(vID);
+                DirectedGraph::Vertex& adj = getVertex(i);
+                adj.removeOutEdge(vID);
                 --numEdges;     //For self only decremented once for out
             }
         }
-        //Remove out-edges to the vertex
+        //Remove all out-edges to the vertex
         for (auto i : it->second.adjList){
             if (i!=vID){
-                VertexIterator adjI = getVertexI(i);
-                adjI->second.removeInEdge(vID);
+                DirectedGraph::Vertex& adj = getVertex(i);
+                adj.removeInEdge(vID);
             }
             --numEdges;     //For self only decremented once for out
         }
@@ -281,7 +281,7 @@ void DirectedGraph::printDFS (DirectedGraph::Vertex& v, const uint8_t& depth, co
         indent += "|-> ";
         cout << indent << v.getId() << "\n";
         for (uint64_t i = 0; i < v.getDeg(); ++i){
-            DirectedGraph::Vertex& adj = getVertex(v.getAdjID(i));
+            DirectedGraph::Vertex& adj = getVertex(v.getOutAdjID(i));
             if (!adj.isVisited()) {
                 printDFS (adj, depth, level+1);
             }
@@ -308,7 +308,7 @@ int16_t DirectedGraph::distance(const uint64_t& from, const uint64_t& to){
         }
         v = getVertex(nodeInfo.vID);
         for (uint64_t i = 0; i < v.getDeg(); ++i){
-            tNodeInfo child = {v.getAdjID(i), static_cast<int16_t>(nodeInfo.d + 1)};
+            tNodeInfo child = {v.getOutAdjID(i), static_cast<int16_t>(nodeInfo.d + 1)};
             DirectedGraph::Vertex& adj = getVertex(child.vID);
             if (!adj.isVisited()) {
                 adj.setVisited(true);

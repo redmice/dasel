@@ -50,7 +50,7 @@ public:
     /// Contains the adjacency list, and vertex ID. It is up to the user to
     /// maintain a data structure mapping the
     /// IDs to any additional content.
-    //ToDo: Convert into a templete to hold content data of any type
+    //ToDo: Convert into a template to hold content data of any type
     class Vertex{
         uint64_t id;     // Vertex ID
         vector<uint64_t> adjList;   // Adjacency list
@@ -216,7 +216,7 @@ public:
         ///Create a vertex with id = vID
         Vertex (const uint64_t& vID) : id (vID), visited(false) { }
         ///Copy constructor
-        Vertex (const Vertex& copyVertex) : id (copyVertex.id), visited(copyVertex.id), adjList(copyVertex.adjList), inAdjList(copyVertex.inAdjList) { }
+        Vertex (const Vertex& copyVertex) : id (copyVertex.id), adjList(copyVertex.adjList), inAdjList(copyVertex.inAdjList), visited(copyVertex.id) { }
         ///Access method for the vertex ID
         uint64_t getId () const {return id;}
         ///Returns the visited state for the vertex
@@ -234,7 +234,9 @@ public:
         ///Returns true if the vertex with the given ID is adjacent
         bool isOutEdge (const uint64_t& vID) const { return binary_search(adjList.begin(), adjList.end(), vID); }
         ///Returns the adjacent vertex ID in the given position of the adjacency list
-        uint64_t getAdjID (const uint64_t& pos) const { return adjList[pos]; }
+        uint64_t getOutAdjID (const uint64_t& pos) const { return adjList[pos]; }
+        ///Returns the adjacent vertex ID in the given position of the adjacency list
+        uint64_t getInAdjID (const uint64_t& pos) const { return inAdjList[pos]; }
         ///Adds an edge to the given vertex ID by adding a new element to the adjacency list
         void addOutEdge (const uint64_t& vID);
         ///Removes edge to the given vertex ID from the adjacency list
