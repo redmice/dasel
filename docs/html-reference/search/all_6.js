@@ -2,7 +2,7 @@ var searchData=
 [
   ['insertword',['insertWord',['../class_trie.html#a1e62b611cbcea5f0409170fd6d304084',1,'Trie']]],
   ['isadjacent',['isAdjacent',['../class_undirected_graph_1_1_vertex.html#ab61cd729e521a22b10677c2ae9c93f38',1,'UndirectedGraph::Vertex']]],
-  ['isedge',['isEdge',['../class_undirected_graph.html#a9e62d62fc9d92bddc4f47442e706802a',1,'UndirectedGraph']]],
+  ['isedge',['isEdge',['../class_undirected_graph.html#a9e62d62fc9d92bddc4f47442e706802a',1,'UndirectedGraph::isEdge()'],['../class_directed_graph.html#ac4cacbf25c8b177bff5c838e6554b946',1,'DirectedGraph::isEdge()']]],
   ['isinedge',['isInEdge',['../class_directed_graph_1_1_vertex.html#a357c316d42d860a37c6415cfc805e8cf',1,'DirectedGraph::Vertex']]],
   ['isoutedge',['isOutEdge',['../class_directed_graph_1_1_vertex.html#a3ef4976e0ee1a29cd0a91c01fa5523e3',1,'DirectedGraph::Vertex']]],
   ['isprefix',['isPrefix',['../class_trie.html#a8b1d4ccf77de4c060b421254750fada5',1,'Trie']]],

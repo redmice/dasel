@@ -50,7 +50,7 @@ public:
     /// Contains the adjacency list, and vertex ID. It is up to the user to
     /// maintain a data structure mapping the
     /// IDs to any additional content.
-    //ToDo: Convert into a templete to hold content data of any type
+    //ToDo: Convert into a template to hold content data of any type
     class Vertex{
         uint64_t id;     // Vertex ID
         vector<uint64_t> adjList;   // Adjacency list
@@ -216,7 +216,7 @@ public:
         ///Create a vertex with id = vID
         Vertex (const uint64_t& vID) : id (vID), visited(false) { }
         ///Copy constructor
-        Vertex (const Vertex& copyVertex) : id (copyVertex.id), visited(copyVertex.id), adjList(copyVertex.adjList), inAdjList(copyVertex.inAdjList) { }
+        Vertex (const Vertex& copyVertex) : id (copyVertex.id), adjList(copyVertex.adjList), inAdjList(copyVertex.inAdjList), visited(copyVertex.id) { }
         ///Access method for the vertex ID
         uint64_t getId () const {return id;}
         ///Returns the visited state for the vertex
